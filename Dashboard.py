@@ -94,8 +94,8 @@ elif st.session_state.page == "main":
     # ====== Load Model YOLO + H5 ======
     @st.cache_resource
     def load_model():
-        yolo = YOLO("C:/Users/Lenovo/Downloads/data big lap 5 uts/model/best.pt")
-        classifier = tf.keras.models.load_model("C:/Users/Lenovo/Downloads/data big lap 5 uts/model/best.h5")
+        yolo = YOLO("/model/best.pt")
+        classifier = tf.keras.models.load_model("/model/best.h5")
         return yolo, classifier
 
     yolo_model, classifier_model = load_model()
@@ -153,3 +153,4 @@ elif st.session_state.page == "main":
 
                         st.metric("🎀 Prediksi Kelas", label)
                         st.metric("🎀 Probabilitas", f"{prob:.2%}")
+
